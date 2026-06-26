@@ -111,7 +111,7 @@ WORKS_MESSAGE = """
 #Блок 8, ссылка на Github
 GITHUB_MESSAGE = """
 <b>Ссылка на GitHub</b>
-Вот ссылка на исходный код моего бота в GitHub: https://github.com/Aibiakh/aibiakh-contest-capeducation
+Вот ссылка на исходный код моего бота в GitHub: https://github.com/Aibiakh/Konkyrs_bot_Aibi_khmetova
 """
 
 #Квиз
