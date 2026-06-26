@@ -106,11 +106,11 @@ def q_start(message):
     bot.register_next_step_handler(message, q2)
 
 def check_answers(user_text, correct_answer):
-    return user_text_strip().lower() == str(correct_answer).strip().lower()
+    return user_text.strip().lower() == str(correct_answer).strip().lower()
 
 
 def q2(message):
-    if check_answer(message.text, ANSWERS[0])
+    if check_answer(message.text, ANSWERS[0]):
         bot.send_message(message.chat.id, "Правильно!")
     else:
         bot.send_message(message.chat.id, "Неправильно!")
@@ -118,7 +118,7 @@ def q2(message):
     bot.register_next_step_handler(message, q3)
 
 def q3(message):
-    if check_answer(message.text, ANSWERS[1])
+    if check_answer(message.text, ANSWERS[1]):
         bot.send_message(message.chat.id, "Правильно!")
     else:
         bot.send_message(message.chat.id, "Неправильно!")
@@ -126,7 +126,7 @@ def q3(message):
     bot.register_next_step_handler(message, q4)
 
 def q4(message):
-    if check_answer(message.text, ANSWERS[2])
+    if check_answer(message.text, ANSWERS[2]):
         bot.send_message(message.chat.id, "Правильно!")
     else:
         bot.send_message(message.chat.id, "Неправильно!")
@@ -134,7 +134,7 @@ def q4(message):
     bot.register_next_step_handler(message, q5)
 
 def q5(message):
-    if check_answer(message.text, ANSWERS[3])
+    if check_answer(message.text, ANSWERS[3]):
         bot.send_message(message.chat.id, "Правильно!")
     else:
         bot.send_message(message.chat.id, "Неправильно!")
@@ -142,7 +142,7 @@ def q5(message):
     bot.register_next_step_handler(message, q6)
 
 def q6(message):
-     if check_answer(message.text, ANSWERS[4])
+    if check_answer(message.text, ANSWERS[4]):
         bot.send_message(message.chat.id, "Правильно!")
     else:
         bot.send_message(message.chat.id, "Неправильно!")
@@ -150,7 +150,7 @@ def q6(message):
     bot.register_next_step_handler(message, q_final)
 
 def q_final(message):
-   if check_answer(message.text, ANSWERS[5])
+   if check_answer(message.text, ANSWERS[5]):
         bot.send_message(message.chat.id, "Правильно!")
     else:
         bot.send_message(message.chat.id, "Неправильно!")
