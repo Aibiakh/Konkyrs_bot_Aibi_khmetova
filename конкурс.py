@@ -108,46 +108,48 @@ def q_start(message):
 def q1(message):
     if message.text.strip().lower() == str(ANSWERS[0]).strip().lower():
         bot.send_message(message.chat.id, "Правильно!")
+        bot.send_message(message.chat.id, Questionone_MESSAGE)
+    bot.register_next_step_handler(message, q2)
     else:
         bot.send_message(message.chat.id, "Неправильно!")
-    bot.send_message(message.chat.id, Questionone_MESSAGE)
-    bot.register_next_step_handler(message, q2)
 
 def q2(message):
     if message.text.strip().lower() == str(ANSWERS[1]).strip().lower():
         bot.send_message(message.chat.id, "Правильно!")
+        bot.send_message(message.chat.id, Questiontwo_MESSAGE)
+        bot.register_next_step_handler(message, q3)
     else:
         bot.send_message(message.chat.id, "Неправильно!")
-    bot.send_message(message.chat.id, Questiontwo_MESSAGE)
-    bot.register_next_step_handler(message, q3)
 
 def q3(message):
     if message.text.strip().lower() == str(ANSWERS[2]).strip().lower():
         bot.send_message(message.chat.id, "Правильно!")
+        bot.send_message(message.chat.id, Questionthree_MESSAGE)
+        bot.register_next_step_handler(message, q4)
     else:
         bot.send_message(message.chat.id, "Неправильно!")
-    bot.send_message(message.chat.id, Questionthree_MESSAGE)
-    bot.register_next_step_handler(message, q4)
 
 def q4(message):
     if message.text.strip().lower() == str(ANSWERS[3]).strip().lower():
         bot.send_message(message.chat.id, "Правильно!")
+        bot.send_message(message.chat.id, Questionfour_MESSAGE)
+        bot.register_next_step_handler(message, q5)
     else:
         bot.send_message(message.chat.id, "Неправильно!")
-    bot.send_message(message.chat.id, Questionfour_MESSAGE)
-    bot.register_next_step_handler(message, q5)
+    
 
 def q5(message):
     if message.text.strip().lower() == str(ANSWERS[5]).strip().lower():
         bot.send_message(message.chat.id, "Правильно!")
+        bot.send_message(message.chat.id, Questionsix_MESSAGE)
+    bot.register_next_step_handler(message, q_final)
     else:
         bot.send_message(message.chat.id, "Неправильно!")
-    bot.send_message(message.chat.id, Questionsix_MESSAGE)
-    bot.register_next_step_handler(message, q_final)
 
 def q_final(message):
     if message.text.strip().lower() == ANSWERS[5]:
         bot.send_message(message.chat.id, "Правильно!")
+        bot.send_message(message.chat.id, "Квиз окончен.")
     else:
         bot.send_message(message.chat.id, "Неправильно!")
     bot.send_message(message.chat.id, "Квиз окончен.")
