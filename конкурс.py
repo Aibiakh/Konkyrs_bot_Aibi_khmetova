@@ -95,7 +95,7 @@ def secret_word_message(message):
         print(f"Ошибка при отправке пасхалки: {e}")
         bot.send_message(message.chat.id, "Упс! Я нашла пасхалку, но не могу загрузить картинку.")
 
-from texts import (Questionone_MESSAGE, Questiontwo_MESSAGE, Questionthree_MESSAGE,
+from texts import (Startquiz_MESSAGE, Questionone_MESSAGE, Questiontwo_MESSAGE, Questionthree_MESSAGE,
 Questionfour_MESSAGE, Questionfive_MESSAGE, Questionsix_MESSAGE)
 
 ANSWERS = ["2011", "Атырау", "Икс", "2021", "Тамерлан", "Камень, ножницы, бумага"]
@@ -127,7 +127,7 @@ def q3(message):
     else:
         bot.send_message(message.chat.id, "Неправильно!")
     bot.send_message(message.chat.id, Questionthree_MESSAGE)
-    bot.register_next_step_handler(message, q5)
+    bot.register_next_step_handler(message, q4)
 
 def q4(message):
     if message.text.strip().lower() == str(ANSWERS[3]).strip().lower():
