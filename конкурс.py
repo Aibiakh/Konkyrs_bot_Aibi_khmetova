@@ -102,15 +102,19 @@ ANSWERS = ["2011", "Атырау", "Икс", "2021", "Тамерлан", "Кам
 
 @bot.message_handler(commands=['quiz'])
 def q_start(message):
+    bot.send_message(message.chat.id, Startquiz_MESSAGE)
+    bot.register_next_step_handler(message, q1)
+
+def q1(message):
+    if message.text.strip().lower() == str(ANSWERS[0]).strip().lower():
+        bot.send_message(message.chat.id, "Правильно!")
+    else:
+        bot.send_message(message.chat.id, "Неправильно!")
     bot.send_message(message.chat.id, Questionone_MESSAGE)
     bot.register_next_step_handler(message, q2)
 
-def check_answers(user_text, correct_answer):
-    return user_text.strip().lower() == str(correct_answer).strip().lower()
-
-
 def q2(message):
-    if check_answer(message.text, ANSWERS[0]):
+    if message.text.strip().lower() == str(ANSWERS[1]).strip().lower():
         bot.send_message(message.chat.id, "Правильно!")
     else:
         bot.send_message(message.chat.id, "Неправильно!")
@@ -118,15 +122,15 @@ def q2(message):
     bot.register_next_step_handler(message, q3)
 
 def q3(message):
-    if check_answer(message.text, ANSWERS[1]):
+    if message.text.strip().lower() == str(ANSWERS[2]).strip().lower():
         bot.send_message(message.chat.id, "Правильно!")
     else:
         bot.send_message(message.chat.id, "Неправильно!")
     bot.send_message(message.chat.id, Questionthree_MESSAGE)
-    bot.register_next_step_handler(message, q4)
+    bot.register_next_step_handler(message, q5)
 
 def q4(message):
-    if check_answer(message.text, ANSWERS[2]):
+    if message.text.strip().lower() == str(ANSWERS[3]).strip().lower():
         bot.send_message(message.chat.id, "Правильно!")
     else:
         bot.send_message(message.chat.id, "Неправильно!")
@@ -134,15 +138,7 @@ def q4(message):
     bot.register_next_step_handler(message, q5)
 
 def q5(message):
-    if check_answer(message.text, ANSWERS[3]):
-        bot.send_message(message.chat.id, "Правильно!")
-    else:
-        bot.send_message(message.chat.id, "Неправильно!")
-    bot.send_message(message.chat.id, Questionfive_MESSAGE)
-    bot.register_next_step_handler(message, q6)
-
-def q6(message):
-    if check_answer(message.text, ANSWERS[4]):
+    if message.text.strip().lower() == str(ANSWERS[5]).strip().lower():
         bot.send_message(message.chat.id, "Правильно!")
     else:
         bot.send_message(message.chat.id, "Неправильно!")
@@ -150,7 +146,7 @@ def q6(message):
     bot.register_next_step_handler(message, q_final)
 
 def q_final(message):
-   if check_answer(message.text, ANSWERS[5]):
+    if message.text.strip().lower() == ANSWERS[5]:
         bot.send_message(message.chat.id, "Правильно!")
     else:
         bot.send_message(message.chat.id, "Неправильно!")
