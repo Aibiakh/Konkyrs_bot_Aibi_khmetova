@@ -105,8 +105,12 @@ def q_start(message):
     bot.send_message(message.chat.id, Questionone_MESSAGE)
     bot.register_next_step_handler(message, q2)
 
+def check_answers(user_text, correct_answer):
+    return user_text_strip().lower() == str(correct_answer).strip().lower()
+
+
 def q2(message):
-    if message.text.strip().lower() == str(ANSWERS[0]).strip().lower():
+    if check_answer(message.text, ANSWERS[0])
         bot.send_message(message.chat.id, "Правильно!")
     else:
         bot.send_message(message.chat.id, "Неправильно!")
@@ -114,7 +118,7 @@ def q2(message):
     bot.register_next_step_handler(message, q3)
 
 def q3(message):
-    if message.text.strip().lower() == str(ANSWERS[1]).strip().lower():
+    if check_answer(message.text, ANSWERS[1])
         bot.send_message(message.chat.id, "Правильно!")
     else:
         bot.send_message(message.chat.id, "Неправильно!")
@@ -122,7 +126,7 @@ def q3(message):
     bot.register_next_step_handler(message, q4)
 
 def q4(message):
-    if message.text.strip().lower() == str(ANSWERS[2]).strip().lower():
+    if check_answer(message.text, ANSWERS[2])
         bot.send_message(message.chat.id, "Правильно!")
     else:
         bot.send_message(message.chat.id, "Неправильно!")
@@ -130,7 +134,7 @@ def q4(message):
     bot.register_next_step_handler(message, q5)
 
 def q5(message):
-    if message.text.strip().lower() == str(ANSWERS[3]).strip().lower():
+    if check_answer(message.text, ANSWERS[3])
         bot.send_message(message.chat.id, "Правильно!")
     else:
         bot.send_message(message.chat.id, "Неправильно!")
@@ -138,7 +142,7 @@ def q5(message):
     bot.register_next_step_handler(message, q6)
 
 def q6(message):
-    if message.text.strip().lower() == str(ANSWERS[4]).strip().lower():
+     if check_answer(message.text, ANSWERS[4])
         bot.send_message(message.chat.id, "Правильно!")
     else:
         bot.send_message(message.chat.id, "Неправильно!")
@@ -146,7 +150,7 @@ def q6(message):
     bot.register_next_step_handler(message, q_final)
 
 def q_final(message):
-    if message.text.strip().lower() == ANSWERS[5]:
+   if check_answer(message.text, ANSWERS[5])
         bot.send_message(message.chat.id, "Правильно!")
     else:
         bot.send_message(message.chat.id, "Неправильно!")
@@ -158,5 +162,5 @@ if __name__ == '__main__':
         try:
             bot.polling(none_stop=True, timeout=60)
         except Exception as e:
-            print("Упс, произошла ошибка в работе кода. Попробуйте позже или напишите авторке ;):{e}")
+            print(f"Упс, произошла ошибка в работе кода. Попробуйте позже или напишите авторке ;):{e}")
             time.sleep(5)
